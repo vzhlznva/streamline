@@ -3,11 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://vzhlznva.github.io/streamline/",
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc -b && vite build",
     "test-ts": "vue-tsc --noEmit --skipLibCheck",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.5.17",
@@ -17,6 +19,7 @@
     "@types/node": "^24.0.14",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vue/tsconfig": "^0.7.0",
+    "gh-pages": "^6.3.0",
     "sass": "1.89.2",
     "typescript": "~5.8.3",
     "unplugin-vue-components": "^28.8.0",
