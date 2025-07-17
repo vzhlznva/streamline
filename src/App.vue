@@ -1,30 +1,66 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { computed, onMounted } from 'vue';
+import { useStore } from 'vuex';
+
+const store = useStore()
+
+const rootCategories = computed(() => store.getters.rootCategories);
+
+const expandAll = () => {
+  store.dispatch('expandAllChildrenFromSelected')
+}
+
+const collapseAll = () => {
+  store.dispatch('collapseAllChildrenFromSelected')
+}
+
+onMounted(() => {
+  store.dispatch("initTreeState");
+});
+
 </script>
 
 <template>
-  <div>
-    <a href="https://vite.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+  <div class="app">
+    <div class="app__body">
+      <div class="app__body-tree">
+        <div class="app__body-tree__head">
+          <button class="btn-expand" @click="expandAll" type="button">Expand All</button>
+          <button class="btn-collapse" @click="collapseAll" type="button">Collapse All</button>
+        </div>
+        <TreeNode v-for="rootCat in rootCategories" :key="rootCat._nodeId" :node="rootCat" :level="0" />
+      </div>
+      <div class="app__body-list">
+        <SelectedNodesList />
+      </div>
+    </div>
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style scoped lang="scss">
+.app__body {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  &-tree__head {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    margin: 0 0 20px;
+  }
+
+  .btn-expand,
+  .btn-collapse {
+    border: none;
+    outline: none;
+    padding: 8px 12px;
+    color: var(--accent);
+    cursor: pointer;
+  }
 }
 </style>

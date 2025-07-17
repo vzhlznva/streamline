@@ -9,5 +9,7 @@ export {}
 declare module 'vue' {
   export interface GlobalComponents {
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
+    SelectedNodesList: typeof import('./src/components/SelectedNodesList.vue')['default']
+    TreeNode: typeof import('./src/components/TreeNode.vue')['default']
   }
 }
