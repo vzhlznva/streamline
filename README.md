@@ -1,5 +1,13 @@
-# Vue 3 + TypeScript + Vite
+# Streamline Tree structure
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+[![Deploy to GitHub Pages](https://img.shields.io/github/deployments/vzhlznva/streamline/github-pages?label=github%20pages&logo=github)](https://vzhlznva.github.io/streamline/)
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+## Used tech stack
+
+- **Vue 3** + Composition API
+- **Typescript**
+- **Vuex**
+- **SCSS**
+- **Vite**
+
+**Demo:** [https://vzhlznva.github.io/streamline/](https://vzhlznva.github.io/streamline/)
